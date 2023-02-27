@@ -1,0 +1,4 @@
+[submodule "flux"]
+	path = flux
+	url = git@github.com:flux-rs/flux
+	branch = pldi23-artifact
