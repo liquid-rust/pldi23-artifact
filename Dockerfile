@@ -33,3 +33,4 @@ RUN rm -rf flux
 WORKDIR /usr/artifact/liquid-fixpoint
 COPY liquid-fixpoint ./
 RUN stack install
+RUN rm -rf liquid-fixpoint
