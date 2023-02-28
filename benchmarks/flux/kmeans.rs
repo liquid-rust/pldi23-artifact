@@ -74,22 +74,7 @@ fn nearest(p: &RVec<f32>, cs: &RVec<RVec<f32>>) -> usize {
     res
 }
 
-// #[flux::sig(fn () -> i32)]
-// fn foo() -> i32 {
-//     let mut x = 1;
-//     let mut y = 1;
-//     let mut vec = RVec::new();
-//     vec.push(&mut x);
-//     vec.push(&mut y);
-//     0
-//     // let mut i = 0;
-//     // while i < vec.len() {
-//     //     let ri = vec[i];
-//     //     let rj = vec[i];
-//     // }
-// }
-
-// TODO: the `n` is not needed, except to prevent a silly parse error!
+/// `n` needs to be passed as an extra parameter because in cannot be in the inner `RVec`
 #[flux::sig(fn(n: usize, cs: &mut RVec<RVec<f32>[n]>[@k], &RVec<usize>[k]))]
 fn normalize_centers(_n: usize, cs: &mut RVec<RVec<f32>>, weights: &RVec<usize>) {
     let k = cs.len();

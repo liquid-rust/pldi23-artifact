@@ -34,3 +34,10 @@ WORKDIR /usr/artifact/liquid-fixpoint
 COPY liquid-fixpoint ./
 RUN stack install
 RUN rm -rf liquid-fixpoint
+
+WORKDIR /prusti-dev
+COPY prusti-dev ./
+RUN apt-get install -y build-essential pkg-config curl libssl-dev default-jdk
+RUN ./x.py setup
+RUN ./x.py build --release
+ENV PATH=/prusti-dev/target/release:$PATH

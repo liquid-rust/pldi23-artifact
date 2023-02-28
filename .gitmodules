@@ -5,3 +5,6 @@
 [submodule "liquid-fixpoint"]
 	path = liquid-fixpoint
 	url = git@github.com:ucsd-progsys/liquid-fixpoint.git
+[submodule "prusti-dev"]
+	path = prusti-dev
+	url = git@github.com:PLSysSec/prusti-dev.git
