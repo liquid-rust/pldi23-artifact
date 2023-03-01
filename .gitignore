@@ -1,2 +1,4 @@
 .liquid
 __pycache__
+target
+log
