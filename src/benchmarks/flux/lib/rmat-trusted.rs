@@ -1,7 +1,5 @@
 //! We have a trusted version of `RMat` to avoid including it in the verification time of
 //! individual benchmarks as we don't have a way to exclude a module from the total time.
-#![feature(register_tool)]
-#![register_tool(flux)]
 
 #[flux::opaque]
 #[flux::refined_by(rows: int, cols: int)]

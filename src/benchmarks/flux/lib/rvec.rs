@@ -1,3 +1,4 @@
+#![allow(unused_attributes)]
 #![feature(register_tool)]
 #![register_tool(flux)]
 #![allow(dead_code)]

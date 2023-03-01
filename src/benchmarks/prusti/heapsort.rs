@@ -19,14 +19,14 @@ pub mod vecwrapper;
 use vecwrapper::VecWrapper;
 
 #[ensures(array.len() == old(array.len()))]
-fn heap_sort(array: &mut VecWrapper<i32>) {
+pub fn heap_sort(array: &mut VecWrapper<i32>) {
     let len = array.len();
 
-    let mut start = len/2;
+    let mut start = len / 2;
     // Create heap
     while start > 0 {
         body_invariant!(len == array.len());
-        body_invariant!(start <= len/2);
+        body_invariant!(start <= len / 2);
         body_invariant!(start > 0);
         start -= 1;
         shift_down(array, start, len - 1);
@@ -49,7 +49,7 @@ fn heap_sort(array: &mut VecWrapper<i32>) {
 #[requires(start < array.len())]
 #[requires(end < array.len())]
 #[ensures(array.len() == old(array.len()))]
-fn shift_down(array: &mut VecWrapper<i32>, start: usize, end: usize) {
+pub fn shift_down(array: &mut VecWrapper<i32>, start: usize, end: usize) {
     let mut root = start;
     let mut continue_loop = true;
     while continue_loop {
@@ -74,5 +74,3 @@ fn shift_down(array: &mut VecWrapper<i32>, start: usize, end: usize) {
         }
     }
 }
-
-pub fn main() {}

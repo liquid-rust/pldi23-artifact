@@ -1,3 +1,4 @@
+#![allow(unused_parens)]
 extern crate prusti_contracts;
 use prusti_contracts::*;
 
@@ -13,7 +14,7 @@ use vecwrapperfull::VecWrapperFull;
 #[requires(p.len() > 0)]
 #[ensures(result.len() == p.len())]
 #[ensures(forall(|x: usize| x < result.len() ==> result.lookup(x) < p.len()))]
-fn kmp_table(p: &VecWrapper<char>) -> VecWrapperFull {
+pub fn kmp_table(p: &VecWrapper<char>) -> VecWrapperFull {
     let m = p.len();
     let mut t = VecWrapperFull::from_elem_n(0, m);
     let mut i = 1;
@@ -39,7 +40,7 @@ fn kmp_table(p: &VecWrapper<char>) -> VecWrapperFull {
 }
 
 #[requires((pattern.len() > 0) && (target.len() > 0) && (target.len() >= pattern.len()))]
-fn kmp_search(pattern: VecWrapper<char>, target: VecWrapper<char>) -> usize {
+pub fn kmp_search(pattern: VecWrapper<char>, target: VecWrapper<char>) -> usize {
     let mut t_i: usize = 0;
     let mut p_i: usize = 0;
     let target_len: usize = target.len();
@@ -75,5 +76,3 @@ fn kmp_search(pattern: VecWrapper<char>, target: VecWrapper<char>) -> usize {
     }
     target.len()
 }
-
-pub fn main() {}

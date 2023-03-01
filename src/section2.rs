@@ -30,9 +30,7 @@ type Nat = i32;
 #[flux::sig(fn(&mut Nat))]
 fn decr(x: &mut Nat) {
     let y = *x;
-    if y > 0 {
-        *x = y - 1;
-    }
+    *x = y - 1;
 }
 
 #[flux::sig(fn(bool) -> Nat)]
