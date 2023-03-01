@@ -73,7 +73,7 @@ The command should finish without reporting any errors.
 
 The rest of the README assumes all commands are run inside the docker image with the [src/](./src) directory mounted as described in the [Getting Started](#test-image) section. The instructions ask to modify files in this directory. Since the directory is mounted, you should be able to modify them from your host system and see the changes reflected inside the image. Alternatively, the image comes with `vim` and `nano` pre-installed in case you want to modify them from inside the image.
 
-### Catching some Errors (Section 2)
+### Catching some Errors
 
 The file [`section2.rs`](./src/section2.rs) contains the examples used in Section 2 of the paper. You can run Flux on this file using the following command:
 
@@ -81,9 +81,9 @@ The file [`section2.rs`](./src/section2.rs) contains the examples used in Sectio
 root@a02214363d68:/src# rustc-flux section2.rs
 ```
 
-Since the file doesn't contain any errors the result is not too exciting and the command finishes successfully without producing any output. Let's introduce some errors and see if Flux can catch them.
+Since the file doesn't contain any errors the command finishes successfully without producing any output. Let's introduce some errors and see if Flux can catch them.
 
-The function [`abs`](./src/section2.rs#L17) from Figure 1 in the paper, computes the absolute value of the `i32` input `x`. The output type specifies that the returned value is a non-negative `i32` whose value is at least as much as `x`. Suppose we forgot to negate `x` in the then branch [(L19)](./src/section2.rs#L19), i.e., let's modify the file as follows:
+The function [`abs`](./src/section2.rs#L17) (Figure 1 in the paper) computes the absolute value of the `i32` input `x`. The output type specifies that the returned value is a non-negative `i32` whose value is at least as much as `x`. Suppose we forgot to negate `x` in the then branch [(L19)](./src/section2.rs#L19), i.e., let's modify the file as follows:
 
 ```diff
 diff --git a/section2.rs b/section2.rs
@@ -116,7 +116,7 @@ error: aborting due to previous error
 
 As expected, Flux reports an error that says that the post-condition might not hold since we cannot ensure the result is greater than or equal to zero if we don't negate `x` in the then branch.
 
-You can play around and introduce some errors and let Flux catch them. Here's another suggestion
+You can play around and introduce other errors and let Flux catch them. Here's a suggestion
 
 ```diff
 diff --git a/src/section2.rs b/src/section2.rs

@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 RUN apt-get update && apt-get install -y wget unzip python3 build-essential pkg-config curl libssl-dev default-jdk vim nano
 
 # Install Rustup
-RUN wget -qO- https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain nightly
+RUN wget -qO- https://sh.rustup.rs | sh -s -- -y --profile minimal
 ENV PATH=/root/.cargo/bin:$PATH
 
 # Install Stack
@@ -31,7 +31,5 @@ WORKDIR /prusti-dev
 COPY prusti-dev ./
 RUN ./x.py setup && ./x.py build --release
 ENV PATH=/prusti-dev/target/release:$PATH
-
-RUN apt-get install vim nano
 
 WORKDIR /src

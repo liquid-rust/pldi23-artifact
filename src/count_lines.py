@@ -1,3 +1,6 @@
+import glob
+
+
 def is_preamble(line):
     if line.startswith("pub mod"):
         return True
@@ -28,6 +31,19 @@ def is_prusti_annotation(annotation):
 
 def is_flux_annotation(annotation):
     return "flux::" in annotation
+
+
+def count_files(pattern):
+    counts = {
+        "loc": 0,
+        "annot": 0,
+        "spec": 0,
+    }
+
+    for file in glob.iglob(pattern, recursive=True):
+        counts = {k: v + counts[k] for (k, v) in count_file(file).items()}
+
+    return counts
 
 
 def count_file(path):

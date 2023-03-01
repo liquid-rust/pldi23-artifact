@@ -1,0 +1,63 @@
+∀ a0: bool, a1: int.
+  ∀ a2: int.
+    $k3(0, 0)[a0, a1, a2] ~ Goto(26:9: 26:16, bb4)
+    $k4(0, 0, 0, false)[a0, a1, a2, 0, 0] ~ Goto(26:9: 26:16, bb4)
+    ∀ a3: int, a4: int.
+      $k3(a3, a4)[a0, a1, a2] ⇒
+        ¬(a4 < a2) ⇒
+          ∀ a5: int, a6: int, a7: int, a8: bool.
+            $k4(a5, a6, a7, a8)[a0, a1, a2, a3, a4] ⇒ $k8(a5, a6, a7, a8)[a0, a1, a2, a3, a4] ~ Goto(28:5: 48:6, bb30)
+        (a4 < a2) ⇒
+          (0 ≤ a4 ∧ a4 < a2) ~ Call(31:17: 31:32)
+          a0 ⇒
+            ∀ a5: int, a6: int, a7: int, a8: bool.
+              $k4(a5, a6, a7, a8)[a0, a1, a2, a3, a4] ⇒
+                $k5(false)[a0, a1, a2, a3, a4] ~ Goto(33:12: 33:57, bb12)
+                $k6(a5, a6, a7, a8)[a0, a1, a2, a3, a4, false] ~ Goto(33:12: 33:57, bb12)
+          ¬a0 ⇒
+            ∀ a5: int, a6: int, a7: int, a8: bool.
+              $k4(a5, a6, a7, a8)[a0, a1, a2, a3, a4] ⇒
+                $k5(a4 + 1 = a2)[a0, a1, a2, a3, a4] ~ Goto(33:12: 33:57, bb12)
+                $k6(a5, a6, a7, a8)[a0, a1, a2, a3, a4, a4 + 1 = a2] ~ Goto(33:12: 33:57, bb12)
+          ∀ a5: bool.
+            $k5(a5)[a0, a1, a2, a3, a4] ⇒
+              ¬a5 ⇒
+                ∀ a6: int, a7: int, a8: int, a9: bool.
+                  $k6(a6, a7, a8, a9)[a0, a1, a2, a3, a4, a5] ⇒
+                    (a6 = a7) ~ Call(39:30: 39:96)
+                    ∀ a10: int, a11: int, a12: int, a13: bool, a14: int, a15: int, a16: int, a17: bool.
+                      (a14 = a15) ⇒
+                        ∀ a18: int.
+                          (a14 = a15) ~ Call(42:13: 42:78)
+                          ∀ a19: int, a20: int, a21: int, a22: bool.
+                            (a19 = a20) ⇒
+                              ∀ a23: int.
+                                $k1(a19, a20, a21, a22)[a0, a1, a2, a3, a4, a5, a6, a7, a8, a9] ~ Goto(41:9: 43:10, bb23)
+                                $k2(a23)[a0, a1, a2, a3, a4, a5, a6, a7, a8, a9] ~ Goto(41:9: 43:10, bb23)
+                    ∀ a10: int, a11: int, a12: int, a13: bool.
+                      (a10 = a11) ⇒
+                        ∀ a14: int.
+                          $k1(a10, a11, a12, a13)[a0, a1, a2, a3, a4, a5, a6, a7, a8, a9] ~ Goto(43:10: 43:10, bb23)
+                          $k2(a14)[a0, a1, a2, a3, a4, a5, a6, a7, a8, a9] ~ Goto(43:10: 43:10, bb23)
+                    ∀ a10: int.
+                      $k2(a10)[a0, a1, a2, a3, a4, a5, a6, a7, a8, a9] ⇒
+                        ¬(a10 ≥ 10) ⇒
+                          ∀ a11: int, a12: int, a13: int, a14: bool.
+                            $k1(a11, a12, a13, a14)[a0, a1, a2, a3, a4, a5, a6, a7, a8, a9] ⇒
+                              $k3(a10, a4 + 1)[a0, a1, a2] ~ Goto(28:5: 48:6, bb4)
+                              $k4(a11, a12, a13, a14)[a0, a1, a2, a10, a4 + 1] ~ Goto(28:5: 48:6, bb4)
+                        (a10 ≥ 10) ⇒
+                          ∀ a11: int, a12: int, a13: int, a14: bool.
+                            $k1(a11, a12, a13, a14)[a0, a1, a2, a3, a4, a5, a6, a7, a8, a9] ⇒
+                              ∀ a15: int, a16: int, a17: int, a18: bool.
+                                $k9(a15, a16, a17, a18)[a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10] ⇒ (a15 - 1 ≤ a16 ∧ (a0 ⇒ a15 = a16)) ~ RetAt(51:1: 51:2)
+              a5 ⇒
+                ∀ a6: int, a7: int, a8: int, a9: bool.
+                  $k6(a6, a7, a8, a9)[a0, a1, a2, a3, a4, a5] ⇒
+                    ∀ a10: int, a11: int, a12: int, a13: bool.
+                      (a10 = a6 + 1 ∧ a11 = a7) ⇒ $k8(a10, a11, a12, a13)[a0, a1, a2, a3, a4] ~ Goto(1:1: 1:1, bb30)
+        ∀ a5: int, a6: int, a7: int, a8: bool.
+          $k8(a5, a6, a7, a8)[a0, a1, a2, a3, a4] ⇒
+            $k10(a5, a6, a7, a8)[a0, a1, a2, a3, a4, a5, a6, a7, a8] ~ Call(50:5: 50:17)
+            ∀ a9: int, a10: int, a11: int, a12: bool.
+              $k10(a9, a10, a11, a12)[a0, a1, a2, a3, a4, a5, a6, a7, a8] ⇒ (a9 - 1 ≤ a10 ∧ (a0 ⇒ a9 = a10)) ~ RetAt(51:1: 51:2)

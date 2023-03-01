@@ -1,0 +1,33 @@
+∀ a0: int.
+  (a0 ≥ 0) ⇒
+    ∀ a1: int, a2: int.
+      (a2 ≥ 0) ⇒
+        ∀ a3: int. $k3(a3)[a0, a1, a2] ~ Call(98:12: 98:21)
+        ¬(a1 < a2) ⇒
+          ∀ a3: int.
+            $k0(¬(0 ≤ a0 ∧ 0 ≤ a2 ∧ a0 ≤ a0 + a2 ∧ a0 + a2 < DefId(0:208 ~ wave[fdba]::types::LINEAR_MEM_SIZE)))[a0, a1, a2] ~ Goto(98:12: 98:67, bb3)
+            ∀ a4: int. $k1(a4)[a0, a1, a2, ¬(0 ≤ a0 ∧ 0 ≤ a2 ∧ a0 ≤ a0 + a2 ∧ a0 + a2 < DefId(0:208 ~ wave[fdba]::types::LINEAR_MEM_SIZE))] ~ Goto(98:12: 98:67, bb3)
+            ∀ a4: int.
+              $k1(a4)[a0, a1, a2, ¬(0 ≤ a0 ∧ 0 ≤ a2 ∧ a0 ≤ a0 + a2 ∧ a0 + a2 < DefId(0:208 ~ wave[fdba]::types::LINEAR_MEM_SIZE))] ⇒ true
+            ∀ a4: int. $k2(a4)[a0, a1, a2, ¬(0 ≤ a0 ∧ 0 ≤ a2 ∧ a0 ≤ a0 + a2 ∧ a0 + a2 < DefId(0:208 ~ wave[fdba]::types::LINEAR_MEM_SIZE))] ~ Goto(98:12: 98:67, bb3)
+        (a1 < a2) ⇒
+          $k0(true)[a0, a1, a2] ~ Goto(98:12: 98:67, bb3)
+          ∀ a3: int. $k1(a3)[a0, a1, a2, true] ~ Goto(98:12: 98:67, bb3)
+          ∀ a3: int.
+            $k1(a3)[a0, a1, a2, true] ⇒ true
+          ∀ a3: int. $k2(a3)[a0, a1, a2, true] ~ Goto(98:12: 98:67, bb3)
+        ∀ a3: bool.
+          $k0(a3)[a0, a1, a2] ⇒
+            ¬a3 ⇒
+              ∀ a4: int.
+                $k1(a4)[a0, a1, a2, a3] ⇒
+                  (a0 + a2 < DefId(0:208 ~ wave[fdba]::types::LINEAR_MEM_SIZE)) ~ Call(101:9: 101:44)
+                  ∀ a5: int.
+                    $k2(a5)[a0, a1, a2, a3] ⇒ true
+                  (a2 ≤ a1) ~ Call(101:9: 101:44)
+                  $k4(0)[a0, a1, a2, a3, a4] ~ Call(102:9: 102:14)
+                  ∀ a5: int.
+                    $k4(a5)[a0, a1, a2, a3, a4] ⇒ true
+            a3 ⇒
+              ∀ a4: int.
+                $k5(a4)[a0, a1, a2, a3] ⇒ true

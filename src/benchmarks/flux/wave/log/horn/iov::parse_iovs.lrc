@@ -1,0 +1,53 @@
+∀ a0: int, a1: int.
+  (a1 ≥ 0) ⇒
+    ∀ a2: int.
+      (a2 ≥ 0) ⇒
+        $k0(0, 0)[a0, a1, a2] ~ Goto(5:9: 5:22, bb2)
+        ∀ a3: int.
+          $k6(a3)[a0, a1, a2] ⇒ $k1(a3)[a0, a1, a2, 0, 0] ~ Goto(5:9: 5:22, bb2)
+        ∀ a3: int, a4: int.
+          $k0(a3, a4)[a0, a1, a2] ⇒
+            ¬(a3 < a2) ⇒
+              ∀ a5: int.
+                $k1(a5)[a0, a1, a2, a3, a4] ⇒ $k7(a5)[a0, a1, a2, a3, a4] ~ Call(23:12: 23:27)
+              ((a4 ≥ 0) = true) ~ Call(23:5: 23:33)
+              ∀ a5: int.
+                $k1(a5)[a0, a1, a2, a3, a4] ⇒ $k8(a5)[a0, a1, a2, a3, a4] ~ Call(25:5: 25:18)
+              $k9(a4)[a0, a1, a2, a3, a4] ~ Call(25:5: 25:18)
+              ∀ a5: int.
+                $k9(a5)[a0, a1, a2, a3, a4] ⇒
+                  ∀ a6: int.
+                    $k8(a6)[a0, a1, a2, a3, a4] ⇒ true
+            (a3 < a2) ⇒
+              ∀ a5: int.
+                (a5 ≥ 0) ⇒
+                  ∀ a6: int.
+                    (a6 ≥ 0) ⇒
+                      (0 ≤ a5 ∧ 0 ≤ a6 ∧ a5 ≤ a5 + a6 ∧ a5 + a6 < DefId(0:208 ~ wave[fdba]::types::LINEAR_MEM_SIZE)) ⇒
+                        (0 ≤ a5) ~ Call(16:24: 19:10)
+                        (0 ≤ a6 ∧ a5 ≤ a5 + a6 ∧ a5 + a6 < DefId(0:208 ~ wave[fdba]::types::LINEAR_MEM_SIZE)) ~ Call(16:24: 19:10)
+                        $k10(a5)[a0, a1, a2, a3, a4, a5, a6] ~ Call(16:9: 19:11)
+                        ∀ a7: int.
+                          $k1(a7)[a0, a1, a2, a3, a4] ⇒ $k10(a7)[a0, a1, a2, a3, a4, a5, a6] ~ Call(16:9: 19:11)
+                        $k0(a3 + 1, a4 + 1)[a0, a1, a2] ~ Goto(6:22: 21:6, bb2)
+                        ∀ a7: int.
+                          $k10(a7)[a0, a1, a2, a3, a4, a5, a6] ⇒ $k1(a7)[a0, a1, a2, a3 + 1, a4 + 1] ~ Goto(6:22: 21:6, bb2)
+                      ¬(0 ≤ a5 ∧ 0 ≤ a6 ∧ a5 ≤ a5 + a6 ∧ a5 + a6 < DefId(0:208 ~ wave[fdba]::types::LINEAR_MEM_SIZE)) ⇒
+                        ∀ a7: int.
+                          $k12(a7)[a0, a1, a2, a3, a4, a5, a6] ⇒
+                            ∀ a8: int.
+                              $k11(a8)[a0, a1, a2, a3, a4, a5, a6] ⇒ $k3(a8)[a0, a1, a2, a3, a4] ~ Goto(14:20: 14:45, bb19)
+                            $k4(a7)[a0, a1, a2, a3, a4] ~ Goto(14:20: 14:45, bb19)
+                        ∀ a7: int.
+                          $k1(a7)[a0, a1, a2, a3, a4] ⇒ $k5(a7)[a0, a1, a2, a3, a4] ~ Goto(14:20: 14:45, bb19)
+              ∀ a5: int.
+                $k14(a5)[a0, a1, a2, a3, a4] ⇒
+                  ∀ a6: int.
+                    $k13(a6)[a0, a1, a2, a3, a4] ⇒ $k3(a6)[a0, a1, a2, a3, a4] ~ Goto(59:24: 59:30, bb19)
+                  $k4(a5)[a0, a1, a2, a3, a4] ~ Goto(59:24: 59:30, bb19)
+              ∀ a5: int.
+                $k1(a5)[a0, a1, a2, a3, a4] ⇒ $k5(a5)[a0, a1, a2, a3, a4] ~ Goto(59:24: 59:30, bb19)
+              ∀ a5: int.
+                $k4(a5)[a0, a1, a2, a3, a4] ⇒
+                  ∀ a6: int.
+                    $k3(a6)[a0, a1, a2, a3, a4] ⇒ true

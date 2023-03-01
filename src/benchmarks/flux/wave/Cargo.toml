@@ -1,0 +1,17 @@
+[package]
+name = "flux-wave"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "wave"
+crate_type = ["dylib", "rlib"]
+
+
+[dependencies]
+owned-components = { path = "owned-components"}
+
+# [profile.dev]
+# incremental = false
