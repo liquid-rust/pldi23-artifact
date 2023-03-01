@@ -1,4 +1,0 @@
-∀ a0: int.
-  ∀ a1: int. $k0(a1)[a0] ~ Call(11:38: 11:48)
-  ∀ a1: int.
-    $k0(a1)[a0] ⇒ true

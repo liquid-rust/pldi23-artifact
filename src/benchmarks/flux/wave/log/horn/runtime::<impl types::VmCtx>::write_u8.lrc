@@ -1,7 +1,0 @@
-∀ a0: int, a1: int, a2: int.
-  (0 ≤ 1 ∧ 0 ≤ a2 ∧ 1 ≤ 1 + a2 ∧ 1 + a2 < DefId(0:208 ~ wave[fdba]::types::LINEAR_MEM_SIZE) ∧ a2 ≥ 0 ∧ a1 ≥ 0) ⇒
-    ∀ a3: int. $k0(a3)[a0, a1, a2] ~ Call(200:9: 200:25)
-    ∀ a3: int.
-      $k0(a3)[a0, a1, a2] ⇒ true
-    (0 ≤ a2 ∧ a2 < DefId(0:208 ~ wave[fdba]::types::LINEAR_MEM_SIZE)) ~ Call(200:9: 200:25)
-    $k0(a1)[a0, a1, a2] ~ Assign(200:9: 200:29)
