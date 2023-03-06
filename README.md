@@ -149,6 +149,14 @@ error: aborting due to previous error
 
 ### Evaluation (Section 5)
 
-The benchmarks
+The file [`table1.py`](./src/table1.py) contains a script to generate Table 1 in Section 5. By default, the script runs every benchmark 5 times and then reports the average verification time. It takes 20 min to run in my laptop. You can specify the number of repetitions with the `--repeat n` option. For example, to run each benchmark one time:
+
+```
+./tabe1.py --repeat 1
+```
+
+The numbers will be slightly different from the table in the submission version because some benchmarks have been modified. We will update it in the final version.
 
 ### More Examples
+
+To explore more of Flux you can go the website <https://flux.programming.systems/> which contains a playground with additional examples.

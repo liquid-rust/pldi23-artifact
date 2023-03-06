@@ -19,29 +19,29 @@ CMD = {
 BENCHMARKS = {
     "prusti": {
         # Libraries
-        # os.path.join("lib", "vecwrapper.rs"): False,
-        # os.path.join("lib", "matwrapper.rs"): False,
-        # # Benchmarks
-        # "bsearch.rs": True,
-        # "dotprod.rs": True,
-        # "fft.rs": True,
-        # "heapsort.rs": True,
-        # "simplex.rs": True,
-        # "kmeans.rs": True,
-        # "kmp.rs": True,
+        os.path.join("lib", "vecwrapper.rs"): False,
+        os.path.join("lib", "matwrapper.rs"): False,
+        # Benchmarks
+        "bsearch.rs": True,
+        "dotprod.rs": True,
+        "fft.rs": True,
+        "heapsort.rs": True,
+        "simplex.rs": True,
+        "kmeans.rs": True,
+        "kmp.rs": True,
     },
     "flux": {
         # Libraries
-        # os.path.join("lib", "rvec.rs"): False,
-        # os.path.join("lib", "rmat.rs"): True,
-        # # Benchmarks
+        os.path.join("lib", "rvec.rs"): False,
+        os.path.join("lib", "rmat.rs"): True,
+        # Benchmarks
         "bsearch.rs": True,
-        # "dotprod.rs": True,
-        # "fft.rs": True,
-        # "heapsort.rs": True,
-        # "simplex.rs": True,
-        # "kmeans.rs": True,
-        # "kmp.rs": True,
+        "dotprod.rs": True,
+        "fft.rs": True,
+        "heapsort.rs": True,
+        "simplex.rs": True,
+        "kmeans.rs": True,
+        "kmp.rs": True,
     }
 }
 
