@@ -4,7 +4,7 @@
 
 ### Prerequisites
 
-This artifact provides a [docker](https://www.docker.com/) image with all the dependencies required to test the code. All the instructions require you to use the image. To install docker please refer to their [documentation](https://docs.docker.com/).
+This artifact provides a [docker](https://www.docker.com/) image with all the dependencies required to test the code. All the instructions assume you are using the image. To install docker please refer to their [documentation](https://docs.docker.com/).
 
 ### Overview of the Artifact
 
@@ -16,13 +16,13 @@ This artifact provides a [docker](https://www.docker.com/) image with all the de
 
 ### Docker Image
 
-To build the docker image run
+To build the image go to the directory containing the [`Dockerfile`](./Dockerfile) (the root of this artifact) and then run
 
 ```console
 docker build --pull --rm -f "Dockerfile" -t fluxrs/pldi23-artifact:latest "."
 ```
 
-This will install all the necessary dependencies and build Flux, Prusti and Fixpoint from source. It takes around 30min to complete in my laptop.
+This will install all the necessary dependencies inside the image and build Flux, Prusti and Fixpoint from source. It takes around 30min to complete in my laptop.
 
 We also provide a [prebuilt image](https://hub.docker.com/repository/docker/fluxrs/pldi23-artifact) published in the docker registry. To download the image run
 
@@ -30,16 +30,18 @@ We also provide a [prebuilt image](https://hub.docker.com/repository/docker/flux
 docker pull fluxrs/pldi23-artifact
 ```
 
-### Test Image
+The final size of the image (uncompressed) is 7.42GB. It takes around 3 minutes to download in my laptop.
+
+### Using the Image
 
 To check everything is working, first run the following command to enter an interactive shell inside the docker image
 
 ```console
-$ docker run --mount type=bind,source=./src,target=/src -it fluxrs/pldi23-artifact
+$ docker run --mount type=bind,source=$(pwd)/src,target=/src -it fluxrs/pldi23-artifact
 root@72bc6d589d06:/src#
 ```
 
-This invocation will mount the directory [src/](./src) inside the image and locate you in that directory. You should be able to list its content.
+This invocation will mount the directory [src/](./src) inside the image and locate you in that directory. Note that you need to specify the absolute path to [`src/`](./src/) for it to work. You should be able to list the content of the directory.
 
 ```console
 root@a02214363d68:/src# ls
@@ -52,7 +54,7 @@ To check the Flux binary is working properly run
 root@a02214363d68:/src# rustc-flux benchmarks/flux/kmp.rs --crate-type=rlib
 ```
 
-This will run Flux on the [`kmp.rs`](./src/benchmarks/flux/kmp.rs) benchmark. Since the file doesn't contain any errors the process should finish successfully producing an empty output.
+This will run Flux on the [`kmp.rs`](./src/benchmarks/flux/kmp.rs) benchmark. Since the file doesn't contain any errors, the process should finish successfully producing an empty output.
 
 Similarly, you should be able to run Prusti on the same benchmark.
 
@@ -71,7 +73,7 @@ The command should finish without reporting any errors.
 
 ## Step-by-step Instructions
 
-The rest of the README assumes all commands are run inside the docker image with the [src/](./src) directory mounted as described in the [Getting Started](#test-image) section. The instructions ask to modify files in this directory. Since the directory is mounted, you should be able to modify them from your host system and see the changes reflected inside the image. Alternatively, the image comes with `vim` and `nano` pre-installed in case you want to modify them from inside the image.
+The rest of the README assumes all commands are run inside the docker image with the [src/](./src) directory mounted as described in the [Getting Started](#using-the-image) section. The instructions ask to modify files in this directory. Since the directory is mounted, you should be able to modify them from your host system and see the changes reflected inside the image. Alternatively, the image comes with `vim` and `nano` pre-installed in case you want to modify them from inside the image.
 
 ### Catching some Errors
 
@@ -151,12 +153,12 @@ error: aborting due to previous error
 
 The file [`table1.py`](./src/table1.py) contains a script to generate Table 1 in Section 5. By default, the script runs every benchmark 5 times and then reports the average verification time. It takes 20 min to run in my laptop. You can specify the number of repetitions with the `--repeat n` option. For example, to run each benchmark one time:
 
-```
-./tabe1.py --repeat 1
+```console
+./table1.py --repeat 1
 ```
 
-The numbers will be slightly different from the table in the submission version because some benchmarks have been modified. We will update it in the final version.
+The numbers will be slightly different from the table in the submission because some benchmarks have been modified. We will update it in the final version.
 
 ### More Examples
 
-To explore more of Flux you can go the website <https://flux.programming.systems/> which contains a playground with additional examples.
+To explore more of Flux you can go the website <https://flux.programming.systems/> which contains a list with additional examples.
