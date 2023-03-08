@@ -1,0 +1,40 @@
+error: [Prusti: verification error] the asserted expression might not hold
+  --> $DIR/pure.rs:39:5
+   |
+39 |     assert!(z == 5);
+   |     ^^^^^^^^^^^^^^^
+   |
+   = note: this error originates in the macro `assert` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: [Prusti: verification error] postcondition might not hold.
+  --> $DIR/pure.rs:46:9
+   |
+46 |         result == 3     // test that we get correct span information
+   |         ^^^^^^^^^^^
+   |
+note: the error originates here
+  --> $DIR/pure.rs:54:1
+   |
+54 | / fn test_max3() -> i32 {
+55 | |     let a = 4;
+56 | |     let b = 3;
+57 | |     max(a, b)
+58 | | }
+   | |_^
+
+error: [Prusti: verification error] postcondition might not hold.
+  --> $DIR/pure.rs:67:11
+   |
+67 | #[ensures(result == max(a, b))]
+   |           ^^^^^^^^^^^^^^^^^^^
+   |
+note: the error originates here
+  --> $DIR/pure.rs:68:1
+   |
+68 | / fn test_max5(a: i32, b: i32) -> i32 {
+69 | |     a
+70 | | }
+   | |_^
+
+error: aborting due to 3 previous errors
+
