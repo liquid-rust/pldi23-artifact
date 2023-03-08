@@ -1,0 +1,30 @@
+[workspace]
+members = [
+    "analysis",
+    "prusti",
+    "prusti-contracts",
+    "prusti-contracts-impl",
+    "prusti-contracts-internal",
+    "prusti-specs",
+    "prusti-tests",
+    "prusti-common",
+    "prusti-interface",
+    "prusti-viper",
+    "prusti-server",
+    "prusti-launch",
+    "prusti-utils",
+    "test-crates",
+    "viper",
+    "viper-sys",
+    "vir",
+    "vir-gen",
+    "jni-gen",
+	"jni-gen/systest",
+]
+
+[profile.release]
+# Enable after fixing https://github.com/viperproject/prusti-dev/issues/383
+# lto = true
+# codegen-units = 1
+# Enable when profiling
+# debug = true

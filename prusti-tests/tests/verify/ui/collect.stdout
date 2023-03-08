@@ -1,0 +1,92 @@
+// compile-flags: -Pprint_desugared_specs=true -Pprint_collected_verification_items=true -Phide_uuids=true
+// normalize-stdout-test: "[a-z0-9]{32}" -> "$(NUM_UUID)"
+// normalize-stdout-test: "[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}" -> "$(UUID)"
+// normalize-stdout-test: "/[[a-z0-9]{4}/]::" -> "[$(CRATE_ID)]::"
+
+
+
+
+
+
+#![feature(type_ascription)]
+#![feature(stmt_expr_attributes)]
+#![feature(register_tool)]
+#![register_tool(prusti)]
+#[prelude_import]
+use std::prelude::rust_2018::*;
+#[macro_use]
+extern crate std;
+use prusti_contracts::*;
+#[allow(unused_must_use, unused_parens, unused_variables, dead_code)]
+#[prusti::spec_only]
+#[prusti::spec_id = "$(NUM_UUID)"]
+fn prusti_pre_item_test1_$(NUM_UUID)() -> bool {
+    !!((true): bool)
+}
+#[prusti::pre_spec_id_ref = "$(NUM_UUID)"]
+fn test1() {}
+#[allow(unused_must_use, unused_parens, unused_variables, dead_code)]
+#[prusti::spec_only]
+#[prusti::spec_id = "$(NUM_UUID)"]
+fn prusti_post_item_test2_$(NUM_UUID)(result: ())
+    -> bool {
+    !!((true): bool)
+}
+#[prusti::post_spec_id_ref = "$(NUM_UUID)"]
+fn test2() {}
+fn test3() {
+    let mut curr = 0;
+    while curr < 2 {
+
+        #[allow(unused_must_use, unused_variables)]
+        if false {
+                {
+
+                    #[prusti::spec_only]
+                    #[prusti::loop_body_invariant_spec]
+                    #[prusti::spec_id = "$(NUM_UUID)"]
+                    || -> bool { true };
+                }
+            };
+        curr += 1;
+    }
+}
+#[allow(unused_must_use, unused_parens, unused_variables, dead_code)]
+#[prusti::spec_only]
+#[prusti::spec_id = "$(NUM_UUID)"]
+fn prusti_pre_item_test4_$(NUM_UUID)() -> bool {
+    !!((true): bool)
+}
+#[allow(unused_must_use, unused_parens, unused_variables, dead_code)]
+#[prusti::spec_only]
+#[prusti::spec_id = "$(NUM_UUID)"]
+fn prusti_post_item_test4_$(NUM_UUID)(result: ())
+    -> bool {
+    !!((true): bool)
+}
+#[prusti::pre_spec_id_ref = "$(NUM_UUID)"]
+#[prusti::post_spec_id_ref = "$(NUM_UUID)"]
+fn test4() {
+    let mut curr = 0;
+    while curr < 2 {
+
+        #[allow(unused_must_use, unused_variables)]
+        if false {
+                {
+
+                    #[prusti::spec_only]
+                    #[prusti::loop_body_invariant_spec]
+                    #[prusti::spec_id = "$(NUM_UUID)"]
+                    || -> bool { true };
+                }
+            };
+        curr += 1;
+    }
+}
+fn main() {}
+Collected verification items 5:
+procedure: collect::test3 at $DIR/collect.rs:14:1: 14:11 (#0)
+procedure: collect::main at $DIR/collect.rs:32:1: 32:10 (#0)
+procedure: collect::test1 at $DIR/collect.rs:9:1: 9:11 (#0)
+procedure: collect::test2 at $DIR/collect.rs:12:1: 12:11 (#0)
+procedure: collect::test4 at $DIR/collect.rs:24:1: 24:11 (#0)
