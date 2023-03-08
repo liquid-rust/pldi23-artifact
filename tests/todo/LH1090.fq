@@ -1,0 +1,17 @@
+// This test works on z3-4.4.1, but is broken in 4.4.2 or newer
+
+data Either 2 = [
+  | right { eRight : @(0) }
+  | left { eLeft : @(1) }
+]
+
+bind 0 escobar : {v:int | true }
+bind 1 junk : {v:Either bool int | v = left escobar}
+bind 2 punk : {v:Either int int | true}
+
+constraint:
+  env [0; 1; 2]
+  lhs {v:int | true }
+  rhs {v:int | punk = left escobar }
+  id 1 tag []
+

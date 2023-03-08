@@ -1,0 +1,19 @@
+fixpoint "--rewrite"
+
+constant maker    : (func(0, [int; QQ]))
+constant QQ       : (func(0, [int; QQ]))
+constant selector : (func(0, [QQ; int]))
+
+match selector QQ x = (x)
+define maker(n : int) : QQ = { QQ n }
+
+expand [1 : True]
+
+bind 0 z : {v: QQ | v = maker 10 }
+
+constraint:
+  env [0]
+  lhs {v : QQ | v = z }
+  rhs {v : QQ | selector v = 10 }
+  id 1 tag []
+
