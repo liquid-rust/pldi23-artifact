@@ -4,7 +4,7 @@
 
 ### Prerequisites
 
-This artifact provides a [docker](https://www.docker.com/) image with all the dependencies required to test the code. All the instructions assume you are using the image. To install docker please refer to their [documentation](https://docs.docker.com/).
+This artifact provides a [docker](https://www.docker.com/) image with all the dependencies required to test the code. All the instructions assume you are using the image. To install docker please refer to their [documentation](https://docs.docker.com/). The image only supports `linux/amd64`, thus running it in a host with a matching architecture is advised. If your host machine runs a different architecture (e.g., Apple Silicon) it is still possible to run the image through emulation, but it will be significantly slower. [Enabling Rosetta](https://levelup.gitconnected.com/docker-on-apple-silicon-mac-how-to-run-x86-containers-with-rosetta-2-4a679913a0d5) in Apple Silicon can make things go faster.
 
 ### Overview of the Artifact
 
