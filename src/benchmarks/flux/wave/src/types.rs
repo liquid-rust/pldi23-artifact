@@ -27,9 +27,9 @@ pub enum RuntimeError {
 #[derive(Clone, Copy, PartialEq, Eq)]
 #[flux::refined_by(iov_base: int)]
 pub struct WasmIoVec {
-    #[flux::field({ u32[@iov_base] : 0 <= iov_base})]
+    #[flux::field({ u32[@iov_base] | 0 <= iov_base})]
     pub iov_base: u32,
-    #[flux::field(u32{ len : 0 <= len && iov_base <= iov_base + len && iov_base + len < LINEAR_MEM_SIZE })]
+    #[flux::field(u32{len: 0 <= len && iov_base <= iov_base + len && iov_base + len < LINEAR_MEM_SIZE })]
     pub iov_len: u32,
 }
 
