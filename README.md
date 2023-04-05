@@ -12,7 +12,7 @@ This artifact provides a [docker](https://www.docker.com/) image with all the de
 * [`/src`](./src): This directory contains the code for the examples in Section 2 of the paper and the code for the benchmarks used to compare Flux against Prusti in Section 5. It also contains some scripts to generate the results presented in Section 5.
 * [`/prusti-dev`](./prusti-dev): This directory contains the snapshot of [Prusti](https://github.com/viperproject/prusti-dev) we used to compare against in Section 5.
 * [`/liquid-fixpoint`](./liquid-fixpoint): This directory contains a snapshot of [Fixpoint](https://github.com/ucsd-progsys/liquid-fixpoint). Flux uses the fixpoint binary as an off-the-shelf horn constraint solver.
-* [`/book](./book): A small book documenting some aspects of Flux.
+* [`/book`](./book): A small book documenting some aspects of Flux.
 * [Dockerfile](Dockerfile): Instructions to build the docker image
 
 ### Docker Image
