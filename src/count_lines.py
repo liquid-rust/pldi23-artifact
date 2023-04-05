@@ -1,4 +1,5 @@
 import glob
+import argparse
 
 
 def is_preamble(line):
@@ -111,3 +112,11 @@ def count_file(path):
                 else:
                     counts['loc'] = counts['loc'] + 1
     return counts
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("glob")
+    args = parser.parse_args()
+
+    print(count_files(args.glob))
+    

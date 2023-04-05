@@ -47,16 +47,14 @@ predicate! {
         )
     }
 }
-/*
-pub fn path_safe(v: &HostPath, should_follow: bool) -> bool {
-    arr_is_relative(&v) &&
-    (arr_depth(&v) >= 0) &&
-    (should_follow ==> !arr_is_symlink(&v)) &&
-    arr_has_no_symlink_prefixes(&v)
-}
-*/
 
-/*
-#[ensures(effects!(old(trace), trace, effect!(PathAccessAt, dirfd, path, !flag_set(flags, libc::O_NOFOLLOW))
-pub fn os_openat(dirfd: usize, path: [u8; PATH_MAX], flags: i32) -> isize {
-*/
+// pub fn path_safe(v: &HostPath, should_follow: bool) -> bool {
+//     arr_is_relative(&v) &&
+//     (arr_depth(&v) >= 0) &&
+//     (should_follow ==> !arr_is_symlink(&v)) &&
+//     arr_has_no_symlink_prefixes(&v)
+// }
+
+
+// #[ensures(effects!(old(trace), trace, effect!(PathAccessAt, dirfd, path, !flag_set(flags, libc::O_NOFOLLOW))
+// pub fn os_openat(dirfd: usize, path: [u8; PATH_MAX], flags: i32) -> isize {
