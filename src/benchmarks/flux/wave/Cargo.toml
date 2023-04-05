@@ -10,7 +10,6 @@ crate_type = ["dylib", "rlib"]
 
 [dependencies]
 system-call = { git = "https://github.com/emlaufer/system-call.rs.git", branch = "master" }
-prusti-contracts = { path = "prusti-dev/prusti-contracts" }
 libc = "0.2"
 trace = "*"
 #extra_args = "=0.1.69"
@@ -39,6 +38,3 @@ security-framework-sys = "2.4.2"
 verify = ["wave-macros/enable"] # feature for when we're verifying
 time_syscalls = []
 time_hostcalls = []
-
-[dev-dependencies]
-flux-attrs-proc-macros = { git = "https://github.com/flux-rs/flux.git" }
