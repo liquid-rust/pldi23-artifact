@@ -10,7 +10,7 @@ crate_type = ["dylib", "rlib"]
 
 [dependencies]
 system-call = { git = "https://github.com/emlaufer/system-call.rs.git", branch = "master" }
-prusti-contracts = { path = "prusti-dev/prusti-contracts" }
+prusti-contracts = { path = "prusti-contracts/prusti-contracts" }
 libc = "0.2"
 trace = "*"
 #extra_args = "=0.1.69"
