@@ -56,7 +56,7 @@ fn init_centers(n: usize, k: usize) -> RVec<RVec<f32>> {
 }
 
 /// finding the nearest center to a point
-#[flux::sig(fn(&RVec<f32>[@n], {&RVec<RVec<f32>[n]>[@k] : 0 < k}) -> usize{v:v < k})]
+#[flux::sig(fn(&RVec<f32>[@n], {&RVec<RVec<f32>[n]>[@k] | 0 < k}) -> usize{v:v < k})]
 fn nearest(p: &RVec<f32>, cs: &RVec<RVec<f32>>) -> usize {
     let k = cs.len();
     let mut res = 0;
@@ -86,7 +86,7 @@ fn normalize_centers(_n: usize, cs: &mut RVec<RVec<f32>>, weights: &RVec<usize>)
 }
 
 /// updating the centers
-#[flux::sig(fn(n:usize, {RVec<RVec<f32>[n]>[@k] : 0 < k}, &RVec<RVec<f32>[n]>) -> RVec<RVec<f32>[n]>[k])]
+#[flux::sig(fn(n:usize, {RVec<RVec<f32>[n]>[@k] | 0 < k}, &RVec<RVec<f32>[n]>) -> RVec<RVec<f32>[n]>[k])]
 fn kmeans_step(n: usize, cs: RVec<RVec<f32>>, ps: &RVec<RVec<f32>>) -> RVec<RVec<f32>> {
     let k = cs.len();
 
@@ -109,7 +109,7 @@ fn kmeans_step(n: usize, cs: RVec<RVec<f32>>, ps: &RVec<RVec<f32>>) -> RVec<RVec
 }
 
 /// kmeans: iterating the center-update-steps
-#[flux::sig(fn(n:usize, {RVec<RVec<f32>[n]>[@k] : k > 0}, &RVec<RVec<f32>[n]>, iters: i32) -> RVec<RVec<f32>[n]>[k])]
+#[flux::sig(fn(n:usize, {RVec<RVec<f32>[n]>[@k] | k > 0}, &RVec<RVec<f32>[n]>, iters: i32) -> RVec<RVec<f32>[n]>[k])]
 pub fn kmeans(n: usize, cs: RVec<RVec<f32>>, ps: &RVec<RVec<f32>>, iters: i32) -> RVec<RVec<f32>> {
     let mut i = 0;
     let mut res = cs;

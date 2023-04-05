@@ -47,7 +47,7 @@ impl<T> RVec<T> {
     }
 
     #[flux::trusted]
-    #[flux::sig(fn(self: &strg {RVec<T>[@n] : n > 0}) -> T ensures self: RVec<T>[n-1])]
+    #[flux::sig(fn(self: &strg {RVec<T>[@n] | n > 0}) -> T ensures self: RVec<T>[n-1])]
     pub fn pop(&mut self) -> T {
         self.inner.pop().unwrap()
     }
