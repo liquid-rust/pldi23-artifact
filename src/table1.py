@@ -99,12 +99,14 @@ def check_wave(tool, args):
         cmd = ["cargo-flux", "check"]
         # Check once to avoid including dependencies in the total time
         init = lambda: subprocess.run(cmd, stderr=subprocess.DEVNULL)
-        time = str(timeit("wave", cmd, args.repeat, init, before))
+        # time = str(timeit("wave", cmd, args.repeat, init, before))
+        time = "*"
     elif args.repeat > 0 and tool == "prusti":
         cmd = ["cargo-prusti", "--features", "verify"]
         # Check once to avoid including dependencies in the total time
         init = lambda: subprocess.run(cmd, stderr=subprocess.DEVNULL)
-        time = str(timeit("wave", cmd, args.repeat, init, before))
+        # time = str(timeit("wave", cmd, args.repeat, init, before))
+        time = "*"
     else:
         time = "-"
     counts = count_files("src/**/*.rs")

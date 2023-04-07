@@ -1,4 +1,7 @@
-# pldi23-artifact
+# Flux: Liquid Types for Rust - Artifact
+
+This repository contains the artifact and the technical appendix accompanying the paper [Flux: Liquid Types for Rust](https://doi.org/10.1145/3591283).
+An up to date version of the Flux source code can be found in a our developement repository <https://github.com/flux-rs/flux>.
 
 ## Getting Started
 
@@ -13,7 +16,8 @@ This artifact provides a [docker](https://www.docker.com/) image with all the de
 * [`/prusti-dev`](./prusti-dev): This directory contains the snapshot of [Prusti](https://github.com/viperproject/prusti-dev) we used to compare against in Section 5.
 * [`/liquid-fixpoint`](./liquid-fixpoint): This directory contains a snapshot of [Fixpoint](https://github.com/ucsd-progsys/liquid-fixpoint). Flux uses the fixpoint binary as an off-the-shelf horn constraint solver.
 * [`/book`](./book): A small book documenting some aspects of Flux.
-* [Dockerfile](Dockerfile): Instructions to build the docker image
+* [technical-appendix.pdf](./technical-appendix.pdx) Technical appendix accompanying the paper.
+* [Dockerfile](Dockerfile): Instructions to build the docker image.
 
 ### Docker Image
 
@@ -158,7 +162,19 @@ The file [`table1.py`](./src/table1.py) contains a script to generate Table 1 in
 ./table1.py --repeat 1
 ```
 
-The numbers will be slightly different from the table in the submission because some benchmarks have been modified. We will update it in the final version.
+The script will report the line count for the WaVe case study, but it won't verify the code. To verify the Flux implementation of WaVe
+
+```console
+$ cd benchmarks/flux/wave
+$ cargo-flux check
+```
+
+To verify the Prusti implementation
+
+```
+$ cd benchmarks/prusti/wave
+$ cargo-prusti --features verify
+```
 
 ### Flux Book
 
