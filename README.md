@@ -16,7 +16,7 @@ This artifact provides a [docker](https://www.docker.com/) image with all the de
 * [`/prusti-dev`](./prusti-dev): This directory contains the snapshot of [Prusti](https://github.com/viperproject/prusti-dev) we used to compare against in Section 5.
 * [`/liquid-fixpoint`](./liquid-fixpoint): This directory contains a snapshot of [Fixpoint](https://github.com/ucsd-progsys/liquid-fixpoint). Flux uses the fixpoint binary as an off-the-shelf horn constraint solver.
 * [`/book`](./book): A small book documenting some aspects of Flux.
-* [technical-appendix.pdf](./technical-appendix.pdx) Technical appendix accompanying the paper.
+* [technical-appendix.pdf](./technical-appendix.pdf) Technical appendix accompanying the paper.
 * [Dockerfile](Dockerfile): Instructions to build the docker image.
 
 ### Docker Image
